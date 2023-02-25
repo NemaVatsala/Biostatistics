@@ -1,2 +1,2 @@
 # Biostatistics
-Course material of the biostatistics course 
+Course material for Biostats : 2022-23 II
