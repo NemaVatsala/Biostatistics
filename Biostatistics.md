@@ -53,7 +53,14 @@ The steps for arriving at a Wilcoxon signed rank test statistic, _W,_ are as f
 Non-parametric method for evaluating whether samples come from the same distribution. 
 One-way analysis of variance (ANOVA) is its parametric equivalence test
 1.  _The loss of information in substituting ranks for the original values makes this a less powerful test than ANOVA, so ANOVA should be used if the data meet the Normality and Homoscedasticity assumptions_.
+2. Groups of different sizes can be examined
+3. Presume that each group’s distribution is identically shaped and scaled, except for any variations in medians.
+The average rank of the target group can be higher in the presence of outliers, look at the arithmetic median and the resultant p-value obtained by Kruskal Wallis to validate/refute our hypothesis.
 
+ri is the sum of the ranks for group i with ri’ as the average rank of group i.
+![[Pasted image 20230225132528.png]]
+instrumental when dealing with particularly skewed samples. It can be used widely for a test control group during a campaign rollout or even when performing A/B testing.
+https://www.statisticshowto.com/probability-and-statistics/statistics-definitions/kruskal-wallis/ 
 
 **Students T Distribution:** 
 * Assumes you can estimate the std dev with its statistics, s 
@@ -77,16 +84,43 @@ One-way analysis of variance (ANOVA) is its parametric equivalence test
 5. Transect samples: Travelling along a selected geographical path (i.e. a transect) and taking every observed population member along the path as the sample. Useful in field-based sciences such as forestry and environmental science.
 
 **F-statistic** Ratio of 2 variances, 
+F-tests can compare the fits of different models, [test the overall significance in regression models](https://statisticsbyjim.com/regression/interpret-f-test-overall-significance-regression/), test specific terms in linear models, and determine whether a set of means are all equal.
+F-statistics are the ratio of two variances that are approximately the same value when the null hypothesis is true, which yields F-statistics near 1 
+https://statisticsbyjim.com/anova/f-tests-anova/ 
+
 Relevant for: 
 1. **Two-sample T-Test:** Testing if two independent samples have equal variances. (See: Levene’s test) 
 	* Thanks to software advances though, it takes no extra work to use the unequal variance case, so this case is mostly obsolete. 
 2. **Analysis of Variance, ANOVA**: Testing if the variance attributable to some grouping variable is larger than the variance due to randomness within a group.
  *  When the Fstatistic for a variable is large, there is strong evidence that the grouping variable has an effect.
+1-way ANOVA: 
+F=b/w groups var/within groups var 
 
-3. Form a falsifiable null hypothesis about a parameter. 
-4. Collect sample observations. 
+
+**ANOVA**
+Analysis of variance (ANOVA) assesses the differences between group means
+* need a continuous dependent variable and a categorical independent variable that divides your data into comparison groups to perform ANOVA.
+*1-way ANOVA*: 
+* Generalization of t-tests that can assess the difference between more than two group means.
+ *Factorial ANOVA*
+* By assessing multiple factors together, factorial ANOVA allows your model to detect interaction effects. => Higher efficiency 
+* The hypotheses for the ANOVA test:
+	-   Null Hypothesis: The group means are all equal.
+	-   Alternative Hypothesis: At least one mean is different.
+
+*Multivariate analysis of variance (MANOVA)*
+* Assessing multiple dependent variables simultaneously. 
+* The factors in MANOVA can influence the relationship between dependent variables instead of influencing a single dependent variable.
+
+While a significant ANOVA result indicates that at least one mean differs, it does not specify which one. To identify which differences between pairs of means are statistically significant, [perform a post hoc analysis](https://statisticsbyjim.com/anova/post-hoc-tests-anova/).
+
+**When the p-value is below your significance level, reject the null hypothesis.**
+
+Hypo testing: 
+1. Form a falsifiable null hypothesis about a parameter. 
+2. Collect sample observations. 
  * Use these to get a p-value
-5. Reject the null hypothesis, or fail to. 
+3. Reject the null hypothesis, or fail to. 
 	* Compare the p-value to a significance level alpha.
 	* Reject if p < alpha
 * We use the results from such a test to determine if we have enough evidence to make a decision or a claim.
@@ -125,6 +159,17 @@ $\rho$ param
 
 It arises as the distribution of the difference between two random variates that follow a [Poisson distribution](https://www.statsref.com/HTML/poisson.html) with mean values m1 and m2![[Pasted image 20230225112639.png]]
 
+Param assumptions: 
+#Normality: Data have a normal distribution (or at least is symmetric)  
+#---histogram  
+#---shapiro test  
+#---Q-Q plot  
+#Homogeneity of variances: Data from multiple groups have the same variance  
+#---levene test  
+#---check normality of the residuals distribution  
+#Linearity: Data have a linear relationship - for correlation tests  
+#Independence: Data are independent  
+#No Outliers: There should be no extreme outliers.
 
 References: 
 1. https://www.investopedia.com/terms/w/wilcoxon-test.asp 
