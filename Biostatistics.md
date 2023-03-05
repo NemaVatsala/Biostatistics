@@ -1,3 +1,6 @@
+# Biostatistics
+Course material for Biostats : 2022-23 II
+
 **Shapiro wilks statistic** Goodness-of-fit statistic. Used to test if a set of numbers fits the normal distribution
 H_0: The sample comes from a normally distributed population  
 
@@ -173,4 +176,8 @@ Param assumptions:
 
 References: 
 1. https://www.investopedia.com/terms/w/wilcoxon-test.asp 
-2. 
+2. https://r4ds.hadley.nz/workflow-scripts.html 
+3. https://www.sfu.ca/~jackd/Stat302/Wk04-2_Full.pdf
+4. https://blog.minitab.com/en/statistics-and-quality-data-analysis/what-are-t-values-and-p-values-in-statistics#:~:text=The%20t%2Dvalue%20measures%20the,evidence%20against%20the%20null%20hypothesis.
+5. https://www.sfu.ca/~jackd/Stat302/
+6. https://statisticsbyjim.com/anova/post-hoc-tests-anova/ 
